@@ -9,18 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Tour of Heroes';
+var AccordionComponent = (function () {
+    function AccordionComponent() {
+        this.toggle = false;
     }
-    AppComponent = __decorate([
+    AccordionComponent.prototype.togglediv = function () {
+        this.toggle = !this.toggle;
+    };
+    AccordionComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n     <nav>\n     <a routerLink=\"/dashboard\">Dashboard</a>\n     <a routerLink=\"/heroes\">Heroes</a>\n     <a routerLink=\"/accordion\">Accordion Page</a>\n    </nav>\n   <router-outlet></router-outlet>\n\n  "
+            selector: 'accordion',
+            templateUrl: './../app/accordion.component.html',
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], AccordionComponent);
+    return AccordionComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AccordionComponent = AccordionComponent;
+//# sourceMappingURL=accordion.component.js.map

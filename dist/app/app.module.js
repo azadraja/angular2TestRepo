@@ -13,11 +13,9 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var forms_1 = require('@angular/forms');
 var hero_detail_component_1 = require('./hero-detail.component');
-var hero_service_1 = require('./hero.service');
 var heroes_component_1 = require('./heroes.component');
+var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
-var app_routing_module_1 = require('./app-routing.module');
-var accordion_component_1 = require('./accordion.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,14 +23,26 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                app_routing_module_1.AppRoutingModule
+                router_1.RouterModule.forRoot([
+                    {
+                        path: 'heroes',
+                        component: heroes_component_1.HeroesComponent
+                    },
+                    {
+                        path: '',
+                        redirectTo: '/dashboard',
+                        pathMatch: 'full'
+                    },
+                    {
+                        path: 'dashboard',
+                        component: dashboard_component_1.DashboardComponent
+                    }
+                ])
             ],
             declarations: [app_component_1.AppComponent,
                 hero_detail_component_1.HeroDetailComponent,
                 heroes_component_1.HeroesComponent,
-                dashboard_component_1.DashboardComponent,
-                accordion_component_1.AccordionComponent],
-            providers: [hero_service_1.HeroService],
+                dashboard_component_1.DashboardComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
